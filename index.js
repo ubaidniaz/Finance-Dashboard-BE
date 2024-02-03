@@ -30,9 +30,9 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(async() => {
     app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
-
-    await mongoose.connection.db.dropDatabase();
-    KPI.insertMany(kpis);
+   /* ADD DATA ONE TIMEONLY OR AS NEEDED */
+   //  await mongoose.connection.db.dropDatabase();
+   //  KPI.insertMany(kpis);
   })
   .catch((error) => console.log(`${error} did not connect`));
 
