@@ -11,7 +11,17 @@ const KPISchema = new Schema(
             type: mongoose.Types.Currency,
             currency: "USD", 
             get: (v) => v / 100
-        }
+        },
+        totalRevenue: {
+            type: mongoose.Types.Currency,
+            currency: "USD", 
+            get: (v) => v / 100
+        },
+        totalExpenses: {
+            type: mongoose.Types.Currency,
+            currency: "USD", 
+            get: (v) => v / 100
+        },
     }
 );
 
