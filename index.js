@@ -28,8 +28,11 @@ app.use("/kpi", kpiRoutes);
 const PORT = process.env.PORT || 9000;
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(() => {
+  .then(async() => {
     app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+
+    await mongoose.connection.db.dropDatabase();
+    KPI.insertMany(kpis);
   })
   .catch((error) => console.log(`${error} did not connect`));
 
