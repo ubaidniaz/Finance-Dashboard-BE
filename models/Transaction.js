@@ -6,22 +6,22 @@ const Schema = mongoose.Schema;
 loadType(mongoose);
 
 
-const ProductSchema = new Schema(
+const TransactionSchema = new Schema(
     {
-        price: {
+        buyer: {
             type: mongoose.Types.Currency,
             currency: "USD", 
             get: (v) => v / 100
         },
-        expense: {
+        amount: {
             type: mongoose.Types.Currency,
             currency: "USD", 
             get: (v) => v / 100
         },
-        transactions: [
+        productIds: [
             {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Transaction",
+            ref: "Product",
         }
     ],
         
@@ -30,6 +30,6 @@ const ProductSchema = new Schema(
     {timestamps: true, toJSON: { getters: true}}
 );
 
-const Product = mongoose.model("Product", ProductSchema);
+const Transaction = mongoose.model("Transaction", TransactionSchema);
 
-export default Product;
+export default Transaction;
