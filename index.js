@@ -40,6 +40,8 @@ mongoose
    // await mongoose.connection.db.dropDatabase();
    // KPI.insertMany(kpis);
    // Product.insertMany(products);
+  // Transaction.insertMany(transactions);
+
   })
   .catch((error) => console.log(`${error} did not connect`));
 
