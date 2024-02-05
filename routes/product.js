@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/products", async (req, res) => {
     try {
         const products = await Product.find(); // Use 'KPI' to refer to your model
-        res.status(200).json(kpis);
+        res.status(200).json(products);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
